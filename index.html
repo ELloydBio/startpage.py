@@ -4,6 +4,7 @@
 <title>Startpage</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="main.css">
+<script src="https://cdn.tailwindcss.com"></script> <!-- Doesn't this just scream vibe coded? lol -->
 <body>
     <div class="bg-image"></div>
     <div class=weather-widget>
@@ -22,11 +23,38 @@
         </div>
         <div class="windowbackgroundarea1" 
             style ="padding: 2px 2px 0px 0px;">
-            <span style="display: inline-block; vertical-align: middle; left: 10px">Search:</span>
+            <!-- <span style="display: inline-block; vertical-align: middle; left: 10px">Search:</span>
             <form action="https://www.google.com/search" method="get" class="search-form" style="display: inline-block;"></form>
             <input type="text" name="q" placeholder="Search Google..." class="search-input">
             <input type="submit" value="Search" class="search-button">
+            </form> -->
+            <form action="https://www.google.com/search" method="get" class="search-form">
+                <span class="flex items-center px-4 bg-indigo-50 text-indigo-700 text-sm font-semibold">
+                    Search:
+                </span>
+                
+                <input 
+                    type="text" 
+                    name="q" 
+                    id="search-input"
+                    placeholder="Search Google..." 
+                    class="search-input w-full p-3 text-gray-700 focus:outline-none"
+                    autocomplete="off"
+                >
+                
+                <button type="submit" class="search-button bg-indigo-600 text-white px-6 hover:bg-indigo-700 transition-colors duration-200 flex items-center justify-center">
+                    <!-- Lucide Search Icon (inline SVG) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <span class="ml-2 hidden sm:inline">Search</span>
+                </button>
             </form>
+            
+            <!-- Suggestions Dropdown (initially hidden) -->
+            <ul id="suggestions-list" class="suggestions-dropdown w-[calc(100%-10px)] max-w-xl mt-1 bg-white border border-gray-200 rounded-lg shadow-lg hidden">
+                <!-- Suggestions will be inserted here by JavaScript -->
+            </ul>
+            <script src="searchbar.js"></script>
+            
         </div>
         <div class="windowbackgroundarea2">
         <div class="centerDivs">
