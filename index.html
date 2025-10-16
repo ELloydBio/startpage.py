@@ -6,20 +6,35 @@
 <link rel="stylesheet" href="main.css">
 <body>
     <div class="bg-image"></div>
+    <div class=weather-widget>
+<a class="weatherwidget-io" href="https://forecast7.com/en/43d25n78d65/ridgewood/?unit=us" data-label_1="RIDGEWOOD" data-label_2="NEW YORK" data-icons="Climacons Animated" data-days="5" data-theme="pure" fontfamily="m96" data-basecolor="rgba(255, 255, 255, 0)" data-accent="" >RIDGEWOOD NEW YORK</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+        </div>
+
     <div class="window-bg">
         <div class="front-img"></div>
+        
         <div class="titlediv">
             <div id=titleb>Startpage template...</div>
             <div id="clock"></div>
         </div>
-        <div class="windowbackgroundarea1"><div id="Subtitle">Have a nice day.</div></div>
+        <div class="windowbackgroundarea1" 
+            style ="padding: 2px 2px 0px 0px;">
+            <span style="display: inline-block; vertical-align: middle; left: 10px">Search:</span>
+            <form action="https://www.google.com/search" method="get" class="search-form" style="display: inline-block;"></form>
+            <input type="text" name="q" placeholder="Search Google..." class="search-input">
+            <input type="submit" value="Search" class="search-button">
+            </form>
+        </div>
         <div class="windowbackgroundarea2">
         <div class="centerDivs">
             <div class="category">
                 <div class="categorytitle">Music</div>
                 <div class="categorycontent"><a href="https://music.youtube.com/">Youtube</a> - <a href="">AudioLibrary</a> - <a href="">Radio</a></div>
                 <div class="categorytitle">Dev</div>
-                <div class="categorycontent"><a href="https://gitlab.com">Gitlab</a> - <a href="https://github.com">Github</a></div>
+                <div class="categorycontent"><a href="https://github.com">Github</a></div>
                 <div class="categorytitle">Sources</div>
                 <div class="categorycontent"><a href="https://pixabay.com/photos/blossom-pink-garden-nature-4151081/">Photo1</a> - <a href="https://fontsarena.com/w95fa-by-fontsarena/">Font</a> - <a href="https://pixabay.com/illustrations/picture-woodblock-printing-woodcut-1247354/">Photo2</a> - <a href="https://pixabay.com/">Images</a></div>
                 <div class="categorytitle">Private</div>
@@ -28,7 +43,7 @@
         </div>
         </div>
     </div>
-    <div class="pixeloverlay"></div>
+    <!-- <div class="pixeloverlay"></div> -->
     <div class="vignette"></div>
     <script>
         var clock=document.getElementById("clock");
@@ -38,8 +53,8 @@
             var hours = date.getHours().toString();
             var minutes = date.getMinutes().toString();
             var seconds = date.getSeconds().toString();
-            if (hours.length==1){
-                hours="0"+hours
+            if (hours>12){
+                hours=hours-12
             }
             if (minutes.length==1){
                 minutes="0"+minutes
@@ -47,7 +62,12 @@
             if (seconds.length==1){
                 seconds="0"+seconds
             }
-            clock.innerHTML=hours+":"+minutes+":"+seconds;
+            if (date.getHours().toString()>=12){
+                ampm=" PM"
+            } else {
+                ampm=" AM"
+            }
+            clock.innerHTML=hours+":"+minutes+":"+seconds+" "+ampm;
         }
         updateClock();
         setInterval(updateClock,1000);

@@ -1,12 +1,12 @@
 /*Most easy/basic changes can be done up here in the root area, edit the rest if you know what it does.*/
 :root{
---stripebackground:#e2c8d4;         /*The color of the small stripe just under the header*/
---windowbackground: #d0a4af;        /*The color of the background of the main window main area.*/
+--stripebackground:#eeeeee;         /*The color of the small stripe just under the header*/
+--windowbackground: #dddddd;        /*The color of the background of the main window main area.*/
 --maintextcolor:#000;               /*The color of the text in the main area.*/
 --headercolor:#fff;                 /*The color of the text in the header/title.*/
 --linktextcolor:var(--maintextcolor); /*This line means that the links will have the same color as the normal text in the main area of the window. Change if you want different colors.*/
---backgroundImageUrl:url("resources/images/background.jpg");  /*The URL to the image you want to use as background.*/
---focusImageUrl:url("resources/images/wave.png");   /*The URL to the image you want to use for the foreground.*/
+--backgroundImageUrl:url("resources/images/Sunset\ on\ the\ CRT.png");  /*The URL to the image you want to use as background.*/
+--focusImageUrl:url("resources/images/Dfishe.jpg");   /*The URL to the image you want to use for the foreground.*/
 --backgroundBlur:blur(2px);                           /*Change how blurry the background is. Higher number is more blurry.*/
 --backgroundBorder:#000;                           /*If you have a blurry background, set the color of the border around the image to fit it here.*/
 --letterSpace:2px;                                    /*Define how far letters are spaced from each other in pixels.*/
@@ -74,6 +74,15 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.weather-widget{
+  width: 80vw;
+  position:absolute; 
+  top:5vh; 
+  right:10vw;
+  border-radius: 8px;
+  background-color: rgba(200, 216, 243, 0.87);
+  border: 1px solid teal;
 }
 .titlediv{
   font-size: var(--windowtitlefontsize);
@@ -169,13 +178,13 @@ a{
 body, html {
     height: 100%;
     margin: 0;
-    font-family: w95;
+    font-family: m96;
     color:var(--maintextcolor);
     position: center;
     letter-spacing:var(--letterSpace);
     background: var(--backgroundBorder);
 }
   @font-face {
-    font-family: "w95";
-    src: url('resources/style/w95fa.woff');
+    font-family: "m96";
+    src: url('resources/style/sysfont.woff');
 }
